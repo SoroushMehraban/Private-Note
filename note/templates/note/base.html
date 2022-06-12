@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrivateNote - Cloud computing project</title>
+    <link rel="stylesheet" href="{% static 'note/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'note/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'note/css/style.css' %}">
+</head>
+<body class="bg-light">
+    <div class="text-center bg-dark text-white py-3">
+        <h1 class="display-3"><i class="fa fa-key text-danger"></i>Private Note</h1>
+        <h5>Cloud computing project</h5>
+    </div>
+    {% block content %}{% endblock %}
+
+    <div class="text-center text-muted pt-3">
+        <p class="mb-0">Soroush Mehraban and Mohammadreza Shahrestani</p>
+        <p class="mt-0">© All Rights Reserved</p>
+    </div>
+
+    <script src="{% static 'note/js/popper.min.js' %}"></script>
+    <script src="{% static 'note/js/video.js' %}"></script>
+    <script src="{% static 'note/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

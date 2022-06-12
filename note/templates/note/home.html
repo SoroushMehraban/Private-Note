@@ -1,0 +1,22 @@
+{% extends "note/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 mx-auto my-4">
+                    <h3><i class="fa fa-sticky-note-o"></i> New note</h3>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <textarea required class="form-control" rows="8" name="note"
+                                      placeholder="Write your note here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-plus"></i> Create note</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
