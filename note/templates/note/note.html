@@ -1,0 +1,22 @@
+{% extends "note/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 mx-auto my-4">
+                    <div class="alert alert-warning">
+                        <strong>This note was destroyed. If you need to keep it, copy it before closing the window.</strong>
+                    </div>
+                    <h3><i class="fa fa-pencil"></i> Note content</h3>
+                    <div class="container ">
+                        <div class="row">
+                            <p>{{ content }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

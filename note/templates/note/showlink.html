@@ -1,0 +1,15 @@
+{% extends "note/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 mx-auto my-4">
+                    <h3>Note link ready</h3>
+                    <a href="{% url 'open_note' address=address %}">{{ request.get_host }}{% url 'open_note' address=address %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

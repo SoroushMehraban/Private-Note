@@ -1,0 +1,18 @@
+{% extends "note/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 mx-auto my-4">
+                    <h3>Read and destroy?</h3>
+                    <p>You're about to read and destroy the note with id <b>{{ address }}</b></p>
+                    <a href="{% url 'show_note' address=address %}" class="btn btn-danger">
+                        <i class="fa fa-eye"></i> Yes, show me the note
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

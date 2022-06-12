@@ -1,0 +1,8 @@
+.simpleLink {
+  color: white;
+  text-decoration: none; /* no underline */
+}
+.simpleLink:hover {
+    text-decoration: none;
+    color: white;
+}

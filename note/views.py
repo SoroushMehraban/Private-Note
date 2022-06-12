@@ -1,6 +1,6 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.views import View
+from note.models import Note
 
 
 class MainPage(View):
@@ -8,5 +8,38 @@ class MainPage(View):
         return render(request, 'note/home.html')
 
     def post(self, request):
-        # TODO: Store note here
-        return HttpResponseRedirect(request.path_info)
+        note = Note.objects.create(content=request.POST.get('note'))
+        return redirect(reverse('show_link', args=(note.address,)))
+
+
+class ShowLink(View):
+    def get(self, request, address):
+        note = Note.objects.filter(address=address).first()
+        if note:
+            return render(request, 'note/showlink.html', context={'address': note.address})
+        else:
+            return redirect('NotExist404')
+
+
+class OpenNote(View):
+    def get(self, request, address):
+        note = Note.objects.filter(address=address).first()
+        if note:
+            return render(request, 'note/open_note.html', context={'address': note.address})
+        else:
+            return redirect('NotExist404')
+
+
+class ShowNote(View):
+    def get(self, request, address):
+        note = Note.objects.filter(address=address).first()
+        if note:
+            note.delete()
+            return render(request, 'note/note.html', context={'content': note.content})
+        else:
+            return redirect('NotExist404')
+
+
+class NotExist404(View):
+    def get(self, request):
+        return render(request, 'note/404.html')
