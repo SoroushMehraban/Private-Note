@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse
 from django.views import View
 from note.models import Note
 
+from note.utils import timeout_occurred
+
 
 class MainPage(View):
     def get(self, request):
@@ -33,7 +35,7 @@ class OpenNote(View):
 class ShowNote(View):
     def get(self, request, address):
         note = Note.objects.filter(address=address).first()
-        if note:
+        if note and not timeout_occurred(note.date_added):
             note.delete()
             return render(request, 'note/note.html', context={'content': note.content})
         else:
