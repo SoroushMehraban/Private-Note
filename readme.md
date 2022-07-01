@@ -11,4 +11,5 @@ It's a simple project inspired from [Privnote.com](https://privnote.com).
 ## Steps
 - [x] Implementing the webserver using Django.
 - [x] Containerize the project by writing a Dockerfile and docker-compose (Multi-stage building) 
-- [ ] Deploy the project on kubernetes
+- [x] Deploy the project on kubernetes
+- [x] Using docker-compose to automate resource creation (Additional)
