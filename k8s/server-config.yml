@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-config
+data:
+  server_host: "0.0.0.0"
+  server_port: "8000"
+  note_timeout: "30"
+  db_host: "postgres-service"
+  db_port: "5432"
+  db_name: "privnote"
+  post_timeout: "10"

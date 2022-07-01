@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: privnote-deployment
+  name: privnote-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: privnote-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: privnote-deployment
+    spec:
+      containers:
+      - image: soroushmehraban/privnote:1.0
+        imagePullPolicy: "IfNotPresent"
+        name: privnote-server
+        env:
+          - name: HOST
+            valueFrom:
+              configMapKeyRef:
+                name: server-config
+                key: server_host
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: server-config
+                key: server_port
+          - name: POST_TIMEOUT
+            valueFrom:
+              configMapKeyRef:
+                name: server-config
+                key: post_timeout
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: server-config
+                key: db_name
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: server-config
+                key: db_host
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: server-config
+                key: db_port
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: db_user
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: db_password
+        resources: {}
+status: {}

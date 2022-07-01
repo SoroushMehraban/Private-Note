@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: postgres-deployment
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-deployment
+  strategy: { }
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: postgres-deployment
+    spec:
+      containers:
+        - image: postgres:10-alpine
+          name: "privnote-db"
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  key: db_name
+                  name: server-config
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  key: db_user
+                  name: server-secret
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: db_password
+                  name: server-secret
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgredb
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim
