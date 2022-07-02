@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: shortener
+  name: privnote-deployment
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: shortener
+    name: privnote-deployment
   minReplicas: 1
   maxReplicas: 5
   metrics:
