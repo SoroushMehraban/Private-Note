@@ -12,6 +12,6 @@ It's a simple project inspired from [Privnote.com](https://privnote.com).
 - [x] Implementing the webserver using Django.
 - [x] Containerize the project by writing a Dockerfile and docker-compose (Multi-stage building) 
 - [x] Deploy the project on kubernetes
-- [x] Using HPA component on kubernetes cluster for auto scaling
-- [x] Implementation of helm chart on kubernetes cluster
+- [x] Using HPA component on kubernetes cluster for auto scaling (Additional)
+- [x] Implementation of helm chart on kubernetes cluster (Additional)
 - [x] Using docker-compose to automate resource creation (Additional)
