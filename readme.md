@@ -2,7 +2,7 @@
 
 > **Instructor**: [Dr. S. A. Javadi](https://scholar.google.com/citations?user=Va7RTUsAAAAJ&hl=en)
 
-> **Contributors**: Soroush Mehraban and Mohammadreza Shahrestani
+> **Contributors**: Soroush Mehraban and [Mohammadreza Shahrestani](https://github.com/m-shahrestani)
 
 > **Semester**: Spring 2022
 ## About
