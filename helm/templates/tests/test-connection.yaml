@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "shortener-test-connection"
+  name: "postgres-deployment-test-connection"
   labels:
     {{- include "helm.labels" . | nindent 4 }}
   annotations:
@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ .Release.Name }}-shortener-service:{{ .Values.service.port }}']
+      args: ['{{ .Release.Name }}-postgres-deployment-service:{{ .Values.service.port }}']
   restartPolicy: Never
